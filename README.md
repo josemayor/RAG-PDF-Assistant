@@ -62,4 +62,4 @@ flowchart TD
 
 ## Capturas de pantalla
 
-![Captura01](capturas_pantalla/captura_01.png)
+![Captura01](screenshots/captura_01.png)
