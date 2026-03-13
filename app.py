@@ -21,6 +21,13 @@ PDF_PATH = "data/attention_is_all_you_need.pdf"
 
 
 # === VECTOR STORE (se guarda en disco) ===
+
+# Explicación de esta sección:
+# - Carga el PDF usando PyPDFLoader
+# - Divide el texto en chunks con RecursiveCharacterTextSplitter
+# - Genera embeddings con HuggingFaceEmbeddings (modelo all-MiniLM-L6-v2)
+# - Almacena los embeddings en FAISS (en disco para evitar reprocesar)
+
 if "vectorstore" not in st.session_state:
     with st.spinner("Processing PDF (first time only)..."):
         if os.path.exists("faiss_index"):
@@ -51,6 +58,12 @@ retriever = st.session_state.retriever
 
 
 # === LLM OpenAI ===
+
+# Explicación de esta sección:
+# - Se inicializa un ChatOpenAI apuntando a LM-STUDIO (modelo dolphin3.0-llama3.1-8b)
+# - Se configura para streaming (mostrar token a token) y temperatura baja (respuestas precisas)
+# - Se guarda en session_state para evitar reinicializar en cada interacción
+
 if "llm" not in st.session_state:
     llm = ChatOpenAI(
         model="dolphin3.0-llama3.1-8b",
@@ -66,7 +79,9 @@ llm = st.session_state.llm
 
 # === PROMPT + CHAIN ===
 
-# Prompt para reescribir la pregunta y mejorar la recuperación de documentos
+# Explicación de esta sección:
+# - Se define un prompt para reescribir la pregunta y mejorar la recuperación de documentos
+
 query_rewriter_prompt = ChatPromptTemplate.from_template(
     """
 Rewrite the user question to improve document retrieval.
@@ -103,6 +118,15 @@ rag_chain = (
 
 
 # === CHAT ===
+
+# Explicación de esta sección:
+# - Se inicializa el chat con un mensaje de bienvenida del asistente
+# - Se muestra el historial de mensajes (usuario y asistente)
+# - Al enviar una pregunta, se reescribe para mejorar la recuperación, se ejecuta
+#   el RAG, se muestra la respuesta y el tiempo de respuesta
+# - También se muestran las fuentes recuperadas para transparencia
+# - El historial se guarda en session_state para mantenerlo entre interacciones
+
 if "messages" not in st.session_state:
     st.session_state.messages = [
         {
@@ -140,6 +164,5 @@ if user_input := st.chat_input("Escribe tu pregunta..."):
             st.caption(f"Retrieved {len(docs)} sources")
             with st.expander("Cited sources"):
                 st.markdown(format_docs(docs))
-
 
         st.session_state.messages.append({"role": "assistant", "content": response})
