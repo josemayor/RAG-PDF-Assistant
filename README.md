@@ -14,20 +14,24 @@ Key goals of the project:
 - build a modular pipeline for experimentation with LLM-based document QA systems
 
 ## Architecture
+```mermaid
 flowchart TD
     A[PDF Fijo<br/>Attention is All You Need] --> B[PyPDFLoader]
-    B --> C[RecursiveCharacterTextSplitter<br/>chunk=1000, overlap=200]
-    C --> D[HuggingFaceEmbeddings<br/>all-MiniLM-L6-v2]
-    D --> E[FAISS Vector Store<br/>(saved to disk)]
-    F[Query User] --> G[Retriever k=4]
+    B --> C[RecursiveCharacterTextSplitter<br/>chunk_size=1000, chunk_overlap=200]
+    C --> D[HuggingFace Embeddings<br/>all-MiniLM-L6-v2]
+    D --> E[FAISS Vector Store<br/>persistente en disco]
+    
+    F[Pregunta del usuario] --> G[Retriever<br/>k=4 documentos]
     G --> E
-    E --> H[Context + Prompt]
-    H --> I[ChatGroq<br/>llama3.1-8b]
-    I --> J[Output + References + Duration]
-
-PDF → Chunking → Embeddings → FAISS
-                       ↓
-User Query → Query Rewriter → Retrieval → Reranker → LLM → Answer
+    
+    E --> H[Contexto formateado + Prompt]
+    H --> I[LLM local<br/>Dolphin 3.0 Llama 3.1 8B<br/>vía LM Studio @ localhost:1234]
+    
+    I --> J[Respuesta generada<br/>+ Fuentes citadas<br/>+ Tiempo medido]
+    
+    style A fill:#f9f,stroke:#333
+    style J fill:#bbf,stroke:#333
+```
 
 ## Dataset
 - Paper: "Attention Is All You Need" (Vaswani et al., 2017)
