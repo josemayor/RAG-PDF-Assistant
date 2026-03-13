@@ -59,3 +59,7 @@ flowchart TD
 
 **Average Response Time**: **5.24 segs**  
 **Subjective Accuracy**: 100% (5/5 specialized questions)
+
+## Capturas de pantalla
+
+![Captura01](capturas_pantalla/captura_01.png)
