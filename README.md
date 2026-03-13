@@ -54,11 +54,11 @@ flowchart TD
 
 | Answer | Time to response | Sources cited | Correct answer |
 |----------|------------------|-----------------|---------------------|
-| What is the self-attention mechanism? | 3.96s | Sí (pág 5) | ✅ |
-| What are the advantages of Transformers vs. RNNs? | 8.69s | Sí | ✅ |
-| Explain "scaled dot-product attention" | 4.57s | Sí (pág 3) | ✅ |
-| What is Multi-Head Attention? | 5.20s | Sí (pág 4) | ✅ |
-| Why is positional encoding used? | 3.70s | Sí (pág 1) | ✅ |
+| What is the self-attention mechanism? | 3.96s | Yes (pág 5) | ✅ |
+| What are the advantages of Transformers vs. RNNs? | 8.69s | Yes | ✅ |
+| Explain "scaled dot-product attention" | 4.57s | Yes (pág 3) | ✅ |
+| What is Multi-Head Attention? | 5.20s | Yes (pág 4) | ✅ |
+| Why is positional encoding used? | 3.70s | Yes (pág 1) | ✅ |
 
 **Average Response Time**: **5.24 segs**  
 **Subjective Accuracy**: 100% (5/5 specialized questions)
