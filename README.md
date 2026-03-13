@@ -29,8 +29,8 @@ flowchart TD
     
     I --> J[Respuesta generada<br/>+ Fuentes citadas<br/>+ Tiempo medido]
     
-    style A fill:#f9f,stroke:#333
-    style J fill:#bbf,stroke:#333
+    style A fill:#000,stroke:#333
+    style J fill:#000,stroke:#333
 ```
 
 ## Dataset
@@ -51,7 +51,7 @@ flowchart TD
 
 | Answer | Time to response | Sources cited | Correct answer |
 |----------|------------------|-----------------|---------------------|
-| ¿Qué es el mecanismo de self-attention? | 3.96s | Sí (págs 5) | ✅ |
+| ¿Qué es el mecanismo de self-attention? | 3.96s | Sí (pág 5) | ✅ |
 | ¿Cuáles son las ventajas de los Transformers vs RNN? | 8.69s | Sí | ✅ |
 | Explica "scaled dot-product attention" | 4.57s | Sí (pág 3) | ✅ |
 | ¿Qué es Multi-Head Attention? | 5.20s | Sí (pág 4) | ✅ |
