@@ -1,4 +1,8 @@
-# RAG-PDF-Assistant
+# RAG-PDF Assistant
+
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fjosemayor.dev%2F)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python 3.14](https://img.shields.io/badge/Python-3.14-green.svg)](https://shields.io/)
 
 Advanced RAG system for querying PDFs using FAISS, semantic embeddings and LLM reasoning.
 Built with LangChain, Streamlit and OpenAI. Includes retrieval metrics and evaluation pipeline.
@@ -60,6 +64,6 @@ flowchart TD
 **Average Response Time**: **5.24 segs**  
 **Subjective Accuracy**: 100% (5/5 specialized questions)
 
-## Capturas de pantalla
+## Screenshots
 
 ![Captura01](screenshots/captura_01.png)
