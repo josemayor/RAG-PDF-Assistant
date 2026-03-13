@@ -19,18 +19,18 @@ Key goals of the project:
 ## Architecture
 ```mermaid
 flowchart TD
-    A[PDF Fijo<br/>Attention is All You Need] --> B[PyPDFLoader]
+    A[PDF<br/>Attention is All You Need] --> B[PyPDFLoader]
     B --> C[RecursiveCharacterTextSplitter<br/>chunk_size=1000, chunk_overlap=200]
     C --> D[HuggingFace Embeddings<br/>all-MiniLM-L6-v2]
     D --> E[FAISS Vector Store<br/>persistente en disco]
     
-    F[Pregunta del usuario] --> G[Retriever<br/>k=4 documentos]
+    F[User question] --> G[Retriever<br/>k=4 documentos]
     G --> E
     
-    E --> H[Contexto formateado + Prompt]
-    H --> I[LLM local<br/>Dolphin 3.0 Llama 3.1 8B<br/>vía LM Studio @ localhost:1234]
+    E --> H[Formatted context + Prompt]
+    H --> I[LLM local<br/>Dolphin 3.0 Llama 3.1 8B<br/>via LM Studio @ localhost:1234]
     
-    I --> J[Respuesta generada<br/>+ Fuentes citadas<br/>+ Tiempo medido]
+    I --> J[Generated response<br/>+ Cited sources<br/>+ Measured time]
     
     style A fill:#000,stroke:#333
     style J fill:#000,stroke:#333
@@ -39,7 +39,7 @@ flowchart TD
 ## Dataset
 - Paper: "Attention Is All You Need" (Vaswani et al., 2017)
 - 15 pages
-- Hardcodeado in `data/`
+- Hardcoded in `data/`
 
 ## Model
 - **Embeddings**: sentence-transformers/all-MiniLM-L6-v2 (local, 384 dim)
@@ -54,11 +54,11 @@ flowchart TD
 
 | Answer | Time to response | Sources cited | Correct answer |
 |----------|------------------|-----------------|---------------------|
-| ¿Qué es el mecanismo de self-attention? | 3.96s | Sí (pág 5) | ✅ |
-| ¿Cuáles son las ventajas de los Transformers vs RNN? | 8.69s | Sí | ✅ |
-| Explica "scaled dot-product attention" | 4.57s | Sí (pág 3) | ✅ |
-| ¿Qué es Multi-Head Attention? | 5.20s | Sí (pág 4) | ✅ |
-| ¿Por qué se usa positional encoding? | 3.70s | Sí (pág 1) | ✅ |
+| What is the self-attention mechanism? | 3.96s | Sí (pág 5) | ✅ |
+| What are the advantages of Transformers vs. RNNs? | 8.69s | Sí | ✅ |
+| Explain "scaled dot-product attention" | 4.57s | Sí (pág 3) | ✅ |
+| What is Multi-Head Attention? | 5.20s | Sí (pág 4) | ✅ |
+| Why is positional encoding used? | 3.70s | Sí (pág 1) | ✅ |
 
 **Average Response Time**: **5.24 segs**  
 **Subjective Accuracy**: 100% (5/5 specialized questions)
