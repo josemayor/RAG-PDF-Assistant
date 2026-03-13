@@ -1,10 +1,10 @@
-# RAG-PDF Assistant
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Python 3.14](https://img.shields.io/badge/Python-3.14-green.svg)](https://shields.io/)
+# RAG PDF Assistant
 
 Advanced RAG system for querying PDFs using FAISS, semantic embeddings and LLM reasoning.
 Built with LangChain, Streamlit and OpenAI. Includes retrieval metrics and evaluation pipeline.
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python 3.14](https://img.shields.io/badge/Python-3.14-green.svg)](https://shields.io/)
 
 ## Problem
 This project implements an AI-powered assistant capable of answering questions over PDF documents using a Retrieval-Augmented Generation (RAG) pipeline.
@@ -69,6 +69,9 @@ flowchart TD
 
 ### My Background
 Senior developer (20+ years PHP/MySQL) transitioning to AI/ML.
-👔 Open to remote AI/ML roles in European consultancies
-📧 Contact: hola@josemayor.dev | LinkedIn: https://www.linkedin.com/in/josemayor-ai-ml-developer/
+
+Open to remote AI/ML roles in European consultancies.
+
+Contact: hola@josemayor.dev | LinkedIn: https://www.linkedin.com/in/josemayor-ai-ml-developer/
+
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fjosemayor.dev%2F)
